@@ -3,6 +3,8 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+// 1. Importa la clase URL
+use Illuminate\Support\Facades\URL;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -19,6 +21,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        // 2. Fuerza HTTPS si APP_ENV es 'production'
+        if (config('app.env') === 'production') {
+            URL::forceScheme('https');
+        }
     }
 }
