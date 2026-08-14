@@ -1,8 +1,9 @@
 <?php
-
+use App\Models\Movie;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CatalogController;
+
 
 // 1. La ruta raíz sigue siendo pública y redirige al home o catálogo
 Route::get('/', [HomeController::class, 'getHome']);
